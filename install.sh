@@ -73,5 +73,12 @@ else
   log "Then open a new terminal or run the export above."
 fi
 
+# Claude Code detection — nudge only, never auto-install.
+if need_cmd claude; then
+  log "Claude Code is installed. Build with claude and ship to CloudGrid — ask it to deploy a directory or drop a file."
+else
+  log "Claude Code is not installed. It pairs with CloudGrid to build and ship from one place. Install: curl -fsSL https://claude.ai/install.sh | bash  (docs: https://code.claude.com/docs/en/overview)."
+fi
+
 log ""
 log "Uninstall: npm uninstall -g ${PACKAGE}"
