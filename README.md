@@ -29,7 +29,7 @@ curl -fsSL https://raw.githubusercontent.com/cloudgrid-io/cli/main/install.sh | 
 
 **macOS / Linux -- Homebrew**
 ```
-brew install cloudgrid-io/tap/cloudgrid
+brew install cloudgrid-io/tap/grid
 ```
 
 **Cross-platform (incl. Windows) -- npm**
@@ -37,36 +37,36 @@ brew install cloudgrid-io/tap/cloudgrid
 npm install -g @cloudgrid-io/cli
 ```
 
-Verify: `cloudgrid --version` and `cloudgrid doctor`. The shorthand `cg` works for every command.
+Verify: `grid --version` and `grid doctor`.
 
 ## Quickstart
 
 ```
-cloudgrid login          # Google OAuth in the browser
-cloudgrid whoami         # confirm user + active org
-cloudgrid plug           # build + deploy the current directory, prints the live URL
-cloudgrid open           # open it in the browser
+grid login          # Google OAuth in the browser
+grid whoami         # confirm user + active org
+grid plug           # build + deploy the current directory, prints the live URL
+grid open           # open it in the browser
 ```
 
-No account needed to try a one-off share: `cloudgrid plug ./index.html` drops a public link.
+No account needed to try a one-off share: `grid plug ./index.html` drops a public link.
 
 ## Examples
 
 ```
 # Scaffold and deploy a Node app
-cloudgrid init app my-api --type node
-cd my-api && cloudgrid plug
+grid init app my-api --type node
+cd my-api && grid plug
 
 # Deploy the current directory and tail its logs
-cloudgrid plug
-cloudgrid logs --since 10m
+grid plug
+grid logs --since 10m
 
 # Make a deploy public, then read feedback
-cloudgrid visibility set my-app link
-cloudgrid feedback
+grid visibility set my-app link
+grid feedback
 
 # Switch org, list what is on the grid
-cloudgrid use atomic
+grid use atomic
 cloudgrid grid
 ```
 
@@ -115,7 +115,7 @@ Common per-command:
 npm update -g @cloudgrid-io/cli      # npm
 brew upgrade cloudgrid               # homebrew
 ```
-`cloudgrid doctor` warns when a newer version is available.
+`grid doctor` warns when a newer version is available.
 
 ## Uninstall
 
@@ -128,8 +128,8 @@ rm -rf ~/.cloudgrid                  # remove stored credentials + config
 ## Troubleshooting
 
 - **`cloudgrid: command not found`** -- ensure the npm global bin (or Homebrew bin) is on `$PATH`; re-run the installer.
-- **Auth errors / 401** -- `cloudgrid login` again; check `cloudgrid whoami` shows the expected org, switch with `cloudgrid use <org>`.
-- **Deploy fails** -- run `cloudgrid doctor`; check `cloudgrid logs` and `cloudgrid status <name>` for the trace.
+- **Auth errors / 401** -- `grid login` again; check `grid whoami` shows the expected org, switch with `grid use <org>`.
+- **Deploy fails** -- run `grid doctor`; check `grid logs` and `grid status <name>` for the trace.
 
 ## Support
 
