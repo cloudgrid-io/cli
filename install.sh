@@ -61,7 +61,7 @@ npm install -g "${PACKAGE}@${VERSION}"
 
 # Check that the binary is on PATH.
 if need_cmd cloudgrid; then
-  INSTALLED_VERSION=$(cloudgrid --version 2>/dev/null || echo "unknown")
+  INSTALLED_VERSION=$(grid --version 2>/dev/null || echo "unknown")
   log "Installed: cloudgrid ${INSTALLED_VERSION}"
 else
   NPM_BIN=$(npm bin -g 2>/dev/null || npm prefix -g 2>/dev/null | xargs -I{} printf '%s/bin' {})
