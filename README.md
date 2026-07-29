@@ -43,7 +43,7 @@ Verify: `grid --version` and `grid doctor`.
 
 ```
 grid login          # Google OAuth in the browser
-grid whoami         # confirm user + active org
+grid whoami         # confirm user + active grid
 grid plug           # build + deploy the current directory, prints the live URL
 grid open           # open it in the browser
 ```
@@ -54,7 +54,7 @@ No account needed to try a one-off share: `grid plug ./index.html` drops a publi
 
 ```
 # Scaffold and deploy a Node app
-grid init app my-api --type node
+grid new my-api --type node
 cd my-api && grid plug
 
 # Deploy the current directory and tail its logs
@@ -65,36 +65,35 @@ grid logs --since 10m
 grid visibility set my-app link
 grid feedback
 
-# Switch org, list what is on the grid
+# Switch grid, list what is on it
 grid use atomic
-cloudgrid grid
+grid get grids
 ```
 
 ## Commands
 
 | Command | Purpose |
 |---|---|
-| `login` / `logout` / `whoami` | Sign in (Google OAuth), sign out, show user + active org |
-| `use [slug]` | Set or show the active org |
-| `init <kind> <name>` | Register a new app or agent |
+| `login` / `logout` / `whoami` | Sign in (Google OAuth), sign out, show user + active grid |
+| `use [slug]` | Set or show the active grid |
+| `new <name>` | Scaffold a project folder + cloudgrid.yaml (entity minted on first `plug`) |
 | `plug [target]` | Build + deploy (or redeploy); prints the live URL |
 | `dev` | Run the linked entity locally with grid-injected resources |
-| `status [name]` | Org dashboard, entity detail, or a deploy snapshot |
+| `status [name]` | Grid dashboard, entity detail, or a deploy snapshot |
 | `logs [name]` | Stream entity logs |
 | `open [name]` | Open the entity URL in the browser |
-| `info [name]` / `builds [name]` | Entity metadata; recent deploys |
-| `visibility set <slug> <mode>` | private \| authenticated \| org \| link |
+| `info [name]` | Entity metadata: URL, grid, visibility, services |
+| `visibility set <slug> <mode>` | private \| grid \| link |
 | `rollback` / `versions` | Roll back to a prior deploy; list/tag minted versions |
 | `env` / `secrets` | Manage runtime env vars and secrets (secret values are never printed) |
-| `grid` / `list` | List what is on your hub / org |
+| `get` | List grids, entities, or spaces |
 | `rename` / `delete` / `unplug` | Rename, archive, take off the grid |
-| `pull` / `clone` / `fork` | Download source; clone or fork an entity |
+| `pull` / `pickup` | Download source and link the folder; or fork your own copy |
 | `feedback [message]` | Send feedback to the CloudGrid team |
-| `brain refresh <name>` | Re-run Grid Brain metadata (description, tags, diagram) |
 | `doctor` | Diagnostic checks (Node, Docker, API reachability, auth) |
 | `completion <shell>` | Shell completion script |
 
-Run `cloudgrid <command> --help` for the full flag set of any command.
+Run `grid <command> --help` for the full flag set of any command.
 
 ## Flags
 
@@ -104,7 +103,7 @@ Global:
 - `-h, --help` -- help for any command
 
 Common per-command:
-- `--org <slug>` -- pick/override the org
+- `--grid <slug>` -- pick/override the grid
 - `--json` -- machine-readable output (where supported)
 - `--no-clipboard` / `--no-notify` -- suppress clipboard copy / OS notification on `plug`
 - `--since <dur>` / `--tail <n>` -- `logs` window
@@ -113,7 +112,7 @@ Common per-command:
 
 ```
 npm update -g @cloudgrid-io/cli      # npm
-brew upgrade cloudgrid               # homebrew
+brew upgrade grid                    # homebrew
 ```
 `grid doctor` warns when a newer version is available.
 
@@ -121,14 +120,14 @@ brew upgrade cloudgrid               # homebrew
 
 ```
 npm uninstall -g @cloudgrid-io/cli   # npm
-brew uninstall cloudgrid             # homebrew
+brew uninstall grid                  # homebrew
 rm -rf ~/.cloudgrid                  # remove stored credentials + config
 ```
 
 ## Troubleshooting
 
-- **`cloudgrid: command not found`** -- ensure the npm global bin (or Homebrew bin) is on `$PATH`; re-run the installer.
-- **Auth errors / 401** -- `grid login` again; check `grid whoami` shows the expected org, switch with `grid use <org>`.
+- **`grid: command not found`** -- ensure the npm global bin (or Homebrew bin) is on `$PATH`; re-run the installer.
+- **Auth errors / 401** -- `grid login` again; check `grid whoami` shows the expected grid, switch with `grid use <grid>`.
 - **Deploy fails** -- run `grid doctor`; check `grid logs` and `grid status <name>` for the trace.
 
 ## Support
