@@ -59,13 +59,14 @@ npm install -g "${PACKAGE}@${VERSION}"
 
 # ---------- post-install -----------------------------------------------------
 
-# Check that the binary is on PATH.
-if need_cmd cloudgrid; then
+# Check that the binary is on PATH. The package publishes exactly one bin --
+# `grid`; the deprecated `cloudgrid` / `gridctl` / `cg` aliases are not linked.
+if need_cmd grid; then
   INSTALLED_VERSION=$(grid --version 2>/dev/null || echo "unknown")
-  log "Installed: cloudgrid ${INSTALLED_VERSION}"
+  log "Installed: grid ${INSTALLED_VERSION}"
 else
   NPM_BIN=$(npm bin -g 2>/dev/null || npm prefix -g 2>/dev/null | xargs -I{} printf '%s/bin' {})
-  log "Installed, but 'cloudgrid' is not on your PATH."
+  log "Installed, but 'grid' is not on your PATH."
   log "Add the npm global bin directory to your PATH:"
   log ""
   log "  export PATH=\"${NPM_BIN}:\$PATH\""
