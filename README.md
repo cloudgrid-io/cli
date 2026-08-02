@@ -137,6 +137,4 @@ rm -rf ~/.cloudgrid                  # remove stored credentials + config
 
 ## License
 
-The contents of this repository (installer, documentation, and CI configuration)
-are licensed under MIT. See [LICENSE](./LICENSE). The `@cloudgrid-io/cli` npm
-package carries its own licence.
+MIT. See [LICENSE](./LICENSE).

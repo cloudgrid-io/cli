@@ -1,0 +1,16 @@
+name: Licence gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  licence-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Assert MIT licence text
+        run: grep -q "MIT License" LICENSE
+      - name: Assert copyright holder
+        run: grep -q "Copyright (c) 2026 CloudGrid Inc." LICENSE
