@@ -27,4 +27,4 @@ merging.
 ## License
 
 By contributing, you agree that your contributions will be licensed under the
-Apache-2.0 license. See [LICENSE](./LICENSE).
+MIT license. See [LICENSE](./LICENSE).

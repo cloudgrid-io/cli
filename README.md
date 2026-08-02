@@ -1,7 +1,7 @@
 # CloudGrid CLI
 
 [![npm](https://img.shields.io/npm/v/@cloudgrid-io/cli?color=cb3837)](https://www.npmjs.com/package/@cloudgrid-io/cli)
-[![license](https://img.shields.io/badge/license-Apache--2.0-green)](./LICENSE)
+[![license](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 
 Build, ship, and run apps and agents on CloudGrid from your terminal. A directory or a
 URL becomes a live, addressable thing in about 30 seconds -- deploy, tail logs, share,
@@ -137,4 +137,6 @@ rm -rf ~/.cloudgrid                  # remove stored credentials + config
 
 ## License
 
-Apache-2.0. See [LICENSE](./LICENSE).
+The contents of this repository (installer, documentation, and CI configuration)
+are licensed under MIT. See [LICENSE](./LICENSE). The `@cloudgrid-io/cli` npm
+package carries its own licence.
