@@ -9,7 +9,7 @@
 # Pin a version:
 #   CLOUDGRID_VERSION=0.9.13 sh install.sh
 #
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: MIT
 
 set -eu
 
